@@ -36,10 +36,6 @@ const Home = () => {
       img: Img,
       name: "Good Skelas",
     },
-    {
-      img: Img,
-      name: "Good Skelas",
-    },
   ];
   return (
     <div>
@@ -86,6 +82,8 @@ const Home = () => {
           </Grid>
         </Grid>
       </Paper>
+
+      {/* Staked Container */}
       <Grid
         container
         style={{
@@ -94,6 +92,7 @@ const Home = () => {
           background:
             "linear-gradient(90deg, rgba(70, 165, 255, 0.1) 0%, rgba(74, 176, 255, 0.076) 0%, rgba(198, 40, 247, 0.082) 104.87%)",
           padding: "20px 0px",
+          borderRadius: "20px",
         }}
       >
         <Grid
@@ -101,10 +100,97 @@ const Home = () => {
           md={12}
           display={"flex"}
           justifyContent={"end"}
-          style={{ margin: "15px 0px" }}
+          style={{ margin: "15px 0px", padding: "0px 30px" }}
         >
-          <Button>Staked</Button>
-          <Button>Unstaked</Button>
+          <Button
+            style={{
+              background: "rgba(255, 255, 255, 0.21)",
+              color: "#fff",
+              borderRadius: "30px",
+              padding: "5px 15px",
+            }}
+          >
+            Stake
+          </Button>
+          <Button
+            style={{
+              background:
+                "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)",
+              color: "#fff",
+              borderRadius: "30px",
+              padding: "5px 15px",
+              marginLeft: "10px",
+            }}
+          >
+            Stake All
+          </Button>
+        </Grid>
+        {stakedData.map((val, ind) => {
+          return (
+            <Grid
+              item
+              md={3}
+              sm={6}
+              xs={12}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "20px",
+              }}
+              key={ind}
+            >
+              <div style={{ background: "#5c2fb5", borderRadius: "10px" }}>
+                <img src={val.img} height={"250px"} />
+                <Typography style={{ color: "#fff", marginLeft: "10px" }}>
+                  {val.name}
+                </Typography>
+              </div>
+            </Grid>
+          );
+        })}
+      </Grid>
+      {/* Untaked Container */}
+      <Grid
+        container
+        style={{
+          width: "80%",
+          margin: "0px auto",
+          background:
+            "linear-gradient(90deg, rgba(70, 165, 255, 0.1) 0%, rgba(74, 176, 255, 0.076) 0%, rgba(198, 40, 247, 0.082) 104.87%)",
+          padding: "20px 0px",
+          borderRadius: "20px",
+          marginTop: "20px",
+        }}
+      >
+        <Grid
+          item
+          md={12}
+          display={"flex"}
+          justifyContent={"end"}
+          style={{ margin: "15px 0px", padding: "0px 30px" }}
+        >
+          <Button
+            style={{
+              background: "rgba(255, 255, 255, 0.21)",
+              color: "#fff",
+              borderRadius: "30px",
+              padding: "5px 15px",
+            }}
+          >
+            Stake
+          </Button>
+          <Button
+            style={{
+              background:
+                "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)",
+              color: "#fff",
+              borderRadius: "30px",
+              padding: "5px 15px",
+              marginLeft: "10px",
+            }}
+          >
+            Stake All
+          </Button>
         </Grid>
         {stakedData.map((val, ind) => {
           return (
