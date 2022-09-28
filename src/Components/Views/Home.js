@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import Img from "../assets/StakedImage.png";
+import Ring from "../assets/Ring.png";
+import SelectedRing from "../assets/SelectedRing.png";
+import Stacke from "./Stacke";
+import Unstake from "./Unstake";
 
 const Home = () => {
   const stakedData = [
@@ -37,6 +41,7 @@ const Home = () => {
       name: "Good Skelas",
     },
   ];
+
   return (
     <div>
       <Paper
@@ -60,7 +65,7 @@ const Home = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center",
+                justifyContent: "end",
               }}
             >
               <Typography color={"#fff"}>140 $BONES</Typography>
@@ -99,7 +104,7 @@ const Home = () => {
           item
           md={12}
           display={"flex"}
-          justifyContent={"end"}
+          justifyContent={"flex-end"}
           style={{ margin: "15px 0px", padding: "0px 30px" }}
         >
           <Button
@@ -126,29 +131,10 @@ const Home = () => {
           </Button>
         </Grid>
         {stakedData.map((val, ind) => {
-          return (
-            <Grid
-              item
-              md={3}
-              sm={6}
-              xs={12}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "20px",
-              }}
-              key={ind}
-            >
-              <div style={{ background: "#5c2fb5", borderRadius: "10px" }}>
-                <img src={val.img} height={"250px"} />
-                <Typography style={{ color: "#fff", marginLeft: "10px" }}>
-                  {val.name}
-                </Typography>
-              </div>
-            </Grid>
-          );
+          return <Stacke val={val} ind={ind} />;
         })}
       </Grid>
+
       {/* Untaked Container */}
       <Grid
         container
@@ -160,13 +146,14 @@ const Home = () => {
           padding: "20px 0px",
           borderRadius: "20px",
           marginTop: "20px",
+          // display: "block",
         }}
       >
         <Grid
           item
           md={12}
           display={"flex"}
-          justifyContent={"end"}
+          justifyContent={"flex-end"}
           style={{ margin: "15px 0px", padding: "0px 30px" }}
         >
           <Button
@@ -177,7 +164,7 @@ const Home = () => {
               padding: "5px 15px",
             }}
           >
-            Stake
+            unStake
           </Button>
           <Button
             style={{
@@ -189,29 +176,11 @@ const Home = () => {
               marginLeft: "10px",
             }}
           >
-            Stake All
+            Unstake All
           </Button>
         </Grid>
         {stakedData.map((val, ind) => {
-          return (
-            <Grid
-              item
-              md={3}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "20px",
-              }}
-              key={ind}
-            >
-              <div style={{ background: "#5c2fb5", borderRadius: "10px" }}>
-                <img src={val.img} height={"250px"} />
-                <Typography style={{ color: "#fff", marginLeft: "10px" }}>
-                  {val.name}
-                </Typography>
-              </div>
-            </Grid>
-          );
+          return <Unstake val={val} ind={ind} />;
         })}
       </Grid>
     </div>
