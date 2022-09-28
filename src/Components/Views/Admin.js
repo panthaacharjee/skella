@@ -14,7 +14,7 @@ const Admin = () => {
   ];
 
   //Media Quearry
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 950px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 800px)" });
 
   return (
@@ -65,9 +65,10 @@ const Admin = () => {
             md={7}
             xs={12}
             style={{
-              display: "flex",
+              display: `${isMobile ? "block" : "flex"}`,
               alignItems: "center",
               justifyContent: `${isTabletOrMobile ? "flex-start" : "flex-end"}`,
+              marginTop: `${isTabletOrMobile ? "15px" : "0px"}`,
             }}
           >
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -84,32 +85,39 @@ const Admin = () => {
               />
               <Typography color={"#fff"}> Hours</Typography>
             </div>
-            <Button
+            <div
               style={{
-                marginLeft: "10px",
-                background: "#0096FF",
-                borderRadius: "53px",
-                border: "0px solid red",
-                height: "30px",
-                padding: "0px 30px",
-                color: "#fff",
+                display: "flex",
+                marginTop: `${isMobile ? "15px" : "0px"}`,
               }}
             >
-              Start
-            </Button>
-            <Button
-              style={{
-                marginLeft: "10px",
-                background: "#48C379",
-                borderRadius: "53px",
-                border: "0px solid red",
-                height: "30px",
-                padding: "0px 30px",
-                color: "#fff",
-              }}
-            >
-              Stop
-            </Button>
+              <Button
+                style={{
+                  marginLeft: `${isMobile ? "0px" : "10px"}`,
+                  background: "#0096FF",
+                  borderRadius: "53px",
+                  border: "0px solid red",
+                  height: "30px",
+                  padding: "0px 30px",
+                  color: "#fff",
+                }}
+              >
+                Start
+              </Button>
+              <Button
+                style={{
+                  marginLeft: "10px",
+                  background: "#48C379",
+                  borderRadius: "53px",
+                  border: "0px solid red",
+                  height: "30px",
+                  padding: "0px 30px",
+                  color: "#fff",
+                }}
+              >
+                Stop
+              </Button>
+            </div>
           </Grid>
         </Grid>
         <Grid
@@ -132,7 +140,7 @@ const Admin = () => {
             md={7}
             xs={12}
             style={{
-              display: "flex",
+              display: `${isMobile ? "block" : "flex"}`,
               alignItems: "center",
               justifyContent: `${isTabletOrMobile ? "flex-start" : "flex-end"}`,
             }}
@@ -146,6 +154,7 @@ const Admin = () => {
                 height: "30px",
                 padding: "0px 60px",
                 color: "#fff",
+                marginTop: `${isMobile ? "10px" : "0px"}`,
               }}
             >
               1 Day
@@ -159,6 +168,7 @@ const Admin = () => {
                 height: "30px",
                 padding: "0px 60px",
                 color: "#fff",
+                marginTop: `${isMobile ? "10px" : "0px"}`,
               }}
             >
               5 Day
@@ -172,6 +182,7 @@ const Admin = () => {
                 height: "30px",
                 padding: "0px 60px",
                 color: "#fff",
+                marginTop: `${isMobile ? "10px" : "0px"}`,
               }}
             >
               13 Day
