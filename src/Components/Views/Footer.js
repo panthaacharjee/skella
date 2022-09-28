@@ -8,7 +8,9 @@ import instagram from "../assets/social/Instagram.png";
 
 const Footer = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div
+      style={{ display: "flex", justifyContent: "center", marginTop: "auto" }}
+    >
       <Paper
         style={{
           width: "80%",

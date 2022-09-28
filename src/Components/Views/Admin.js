@@ -1,21 +1,30 @@
-import { Button, Grid, Slider, Typography } from "@mui/material";
+import {
+  Button,
+  Grid,
+  Slider,
+  Typography,
+  FormControl,
+  InputLabel,
+  NativeSelect,
+  Select,
+  MenuItem,
+  TextField,
+} from "@mui/material";
 import React, { useState } from "react";
-import Select from "react-select";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 import { useMediaQuery } from "react-responsive";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const Admin = () => {
   const [stake, setStake] = useState(700);
 
   //Dropdown Option
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
+  const [dropdown, setDropdown] = useState(0);
 
   //Media Quearry
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 950px)" });
-  const isMobile = useMediaQuery({ query: "(max-width: 800px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
     <div>
@@ -140,33 +149,35 @@ const Admin = () => {
             md={7}
             xs={12}
             style={{
-              display: `${isMobile ? "block" : "flex"}`,
-              alignItems: "center",
+              display: "flex",
+              flexDirection: `${isMobile ? "column" : "row"}`,
+              // alignItems: "center",
               justifyContent: `${isTabletOrMobile ? "flex-start" : "flex-end"}`,
+              marginTop: `${isTabletOrMobile ? "20px" : "0px"}`,
             }}
           >
             <Button
               style={{
-                marginLeft: "10px",
+                marginLeft: `${isMobile ? "0px" : "10px"}`,
                 background: "rgba(255, 255, 255, 0.2)",
                 borderRadius: "53px",
                 border: "0px solid red",
                 height: "30px",
-                padding: "0px 60px",
+                padding: "30px 60px",
                 color: "#fff",
-                marginTop: `${isMobile ? "10px" : "0px"}`,
+                marginTop: `${isMobile ? "20px" : "0px"}`,
               }}
             >
               1 Day
             </Button>
             <Button
               style={{
-                marginLeft: "10px",
+                marginLeft: `${isMobile ? "0px" : "10px"}`,
                 background: "rgba(255, 255, 255, 0.2)",
                 borderRadius: "53px",
                 border: "0px solid red",
                 height: "30px",
-                padding: "0px 60px",
+                padding: "30px 60px",
                 color: "#fff",
                 marginTop: `${isMobile ? "10px" : "0px"}`,
               }}
@@ -175,12 +186,12 @@ const Admin = () => {
             </Button>
             <Button
               style={{
-                marginLeft: "10px",
+                marginLeft: `${isMobile ? "0px" : "10px"}`,
                 background: "rgba(255, 255, 255, 0.2)",
                 borderRadius: "53px",
                 border: "0px solid red",
                 height: "30px",
-                padding: "0px 60px",
+                padding: "30px 60px",
                 color: "#fff",
                 marginTop: `${isMobile ? "10px" : "0px"}`,
               }}
@@ -205,94 +216,143 @@ const Admin = () => {
         <Grid
           container
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            padding: "25px 20px",
-            alignItems: "center",
-            borderBottom: ".5px solid rgba(255, 255, 255, 0.1)",
+            borderBottom: "1px solid #fff",
           }}
+          alignItems="center"
+          justifyContent={"space-between"}
         >
-          <Grid item md={7} xs={12}>
-            <div>
-              <Select options={options} pageSize="sm" />
-            </div>
-          </Grid>
           <Grid
             item
-            md={5}
-            xs={12}
+            alignItems={"center"}
             style={{
               display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
+              padding: "15px 0px",
+              // borderBottom: "1px solid #fff",
             }}
-          ></Grid>
+          >
+            <Select
+              // id="demo-simple-select"
+              value={dropdown}
+              label="none"
+              onChange={(e) => setDropdown(e.target.value)}
+              // defaultChecked={"Dropdown"}
+              style={{
+                color: "#fff",
+                borderRadius: "53px",
+                padding: "0px 60px",
+                background: "#52514f",
+              }}
+            >
+              <MenuItem value={0}>Dropdown</MenuItem>
+              <MenuItem value={1}>Ten</MenuItem>
+              <MenuItem value={2}>Twenty</MenuItem>
+              <MenuItem value={3}>Thirty</MenuItem>
+            </Select>
+            <input
+              placeholder="Address"
+              style={{
+                padding: "18px 5px",
+                borderRadius: "53px",
+                marginLeft: "15px",
+                border: "none",
+                background: "#52514f",
+                fontSize: "16px",
+                fontWeight: "500",
+                textAlign: "Center",
+              }}
+              className="input"
+            />
+          </Grid>
+          <Grid>
+            <AiOutlinePlus />
+            <AiOutlinePlus />
+          </Grid>
         </Grid>
         <Grid
           container
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            padding: "25px 20px",
-            alignItems: "center",
-            // borderRadius: "10px",
+            borderBottom: "1px solid #fff",
           }}
+          alignItems="center"
+          justifyContent={"space-between"}
         >
-          <Grid item md={5} xs={12}>
-            <Typography variant="h6" color={"#fff"}>
-              Rewards for staking:
-            </Typography>
-          </Grid>
           <Grid
             item
-            md={7}
-            xs={12}
+            alignItems={"center"}
             style={{
               display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
+              padding: "15px 0px",
+              // borderBottom: "1px solid #fff",
             }}
           >
-            <Button
+            <Select
+              // id="demo-simple-select"
+              value={dropdown}
+              label="none"
+              onChange={(e) => setDropdown(e.target.value)}
+              // defaultChecked={"Dropdown"}
               style={{
-                marginLeft: "10px",
-                background: "rgba(255, 255, 255, 0.2)",
-                borderRadius: "53px",
-                border: "0px solid red",
-                height: "30px",
-                padding: "0px 60px",
                 color: "#fff",
+                borderRadius: "53px",
+                padding: "0px 60px",
+                background: "#52514f",
               }}
             >
-              1 Day
-            </Button>
-            <Button
+              <MenuItem value={0}>Dropdown</MenuItem>
+              <MenuItem value={1}>Ten</MenuItem>
+              <MenuItem value={2}>Twenty</MenuItem>
+              <MenuItem value={3}>Thirty</MenuItem>
+            </Select>
+            <input
+              placeholder="Address"
               style={{
-                marginLeft: "10px",
-                background: "rgba(255, 255, 255, 0.2)",
+                padding: "18px 5px",
                 borderRadius: "53px",
-                border: "0px solid red",
-                height: "30px",
-                padding: "0px 60px",
-                color: "#fff",
+                marginLeft: "15px",
+                border: "none",
+                background: "#52514f",
+                fontSize: "16px",
+                fontWeight: "500",
+                textAlign: "Center",
               }}
-            >
-              5 Day
-            </Button>
-            <Button
-              style={{
-                marginLeft: "10px",
-                background: "rgba(255, 255, 255, 0.2)",
-                borderRadius: "53px",
-                border: "0px solid red",
-                height: "30px",
-                padding: "0px 60px",
-                color: "#fff",
-              }}
-            >
-              13 Day
-            </Button>
+              className="input"
+            />
           </Grid>
+          <Grid>
+            <AiOutlinePlus />
+            <AiOutlinePlus />
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          style={{
+            display: "flex",
+            justifyContent: "end",
+            padding: "20px 0px",
+          }}
+        >
+          <Button
+            style={{
+              color: "#fff",
+              background: "#46465f",
+              borderRadius: "46px",
+              padding: "8px 20px",
+            }}
+          >
+            Save
+          </Button>
+          <Button
+            style={{
+              color: "#fff",
+              background: "blue",
+              borderRadius: "46px",
+              padding: "8px 20px",
+              marginLeft: "10px",
+            }}
+          >
+            <AiOutlinePlus />
+            Add More
+          </Button>
         </Grid>
       </Grid>
     </div>
