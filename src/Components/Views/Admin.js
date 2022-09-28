@@ -1,8 +1,22 @@
 import { Button, Grid, Slider, Typography } from "@mui/material";
 import React, { useState } from "react";
+import Select from "react-select";
+import { useMediaQuery } from "react-responsive";
 
 const Admin = () => {
   const [stake, setStake] = useState(700);
+
+  //Dropdown Option
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+
+  //Media Quearry
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 800px)" });
+
   return (
     <div>
       <Grid
@@ -38,6 +52,7 @@ const Admin = () => {
             justifyContent: "space-between",
             padding: "25px 20px",
             alignItems: "center",
+            borderBottom: ".5px solid rgba(255, 255, 255, 0.1)",
           }}
         >
           <Grid item md={5} xs={12}>
@@ -52,7 +67,7 @@ const Admin = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              justifyContent: "flex-end",
+              justifyContent: `${isTabletOrMobile ? "flex-start" : "flex-end"}`,
             }}
           >
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -63,6 +78,8 @@ const Admin = () => {
                   borderRadius: "53px",
                   border: "0px solid red",
                   height: "30px",
+                  padding: "0px 0px",
+                  color: "#fff",
                 }}
               />
               <Typography color={"#fff"}> Hours</Typography>
@@ -94,6 +111,111 @@ const Admin = () => {
               Stop
             </Button>
           </Grid>
+        </Grid>
+        <Grid
+          container
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "25px 20px",
+            alignItems: "center",
+            // borderRadius: "10px",
+          }}
+        >
+          <Grid item md={5} xs={12}>
+            <Typography variant="h6" color={"#fff"}>
+              Rewards for staking:
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            md={7}
+            xs={12}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: `${isTabletOrMobile ? "flex-start" : "flex-end"}`,
+            }}
+          >
+            <Button
+              style={{
+                marginLeft: "10px",
+                background: "rgba(255, 255, 255, 0.2)",
+                borderRadius: "53px",
+                border: "0px solid red",
+                height: "30px",
+                padding: "0px 60px",
+                color: "#fff",
+              }}
+            >
+              1 Day
+            </Button>
+            <Button
+              style={{
+                marginLeft: "10px",
+                background: "rgba(255, 255, 255, 0.2)",
+                borderRadius: "53px",
+                border: "0px solid red",
+                height: "30px",
+                padding: "0px 60px",
+                color: "#fff",
+              }}
+            >
+              5 Day
+            </Button>
+            <Button
+              style={{
+                marginLeft: "10px",
+                background: "rgba(255, 255, 255, 0.2)",
+                borderRadius: "53px",
+                border: "0px solid red",
+                height: "30px",
+                padding: "0px 60px",
+                color: "#fff",
+              }}
+            >
+              13 Day
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        style={{
+          width: "80%",
+          display: "block",
+          margin: "20px auto",
+          background:
+            "linear-gradient(90deg, rgba(70, 165, 255, 0.26) 0%, rgba(74, 176, 255, 0.1976) 0%, rgba(198, 40, 247, 0.2132) 104.87%)",
+          borderRadius: "15px",
+          padding: "10px 20px",
+        }}
+      >
+        <Grid
+          container
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "25px 20px",
+            alignItems: "center",
+            borderBottom: ".5px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
+          <Grid item md={7} xs={12}>
+            <div>
+              <Select options={options} pageSize="sm" />
+            </div>
+          </Grid>
+          <Grid
+            item
+            md={5}
+            xs={12}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+            }}
+          ></Grid>
         </Grid>
         <Grid
           container
