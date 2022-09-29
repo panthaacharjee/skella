@@ -47,7 +47,7 @@ const Home = () => {
       <div style={{ margin: "30px auto" }}>
         <Paper
           style={{
-            width: "80%",
+            width: "79%",
             display: "flex",
             margin: "0px auto",
             borderRadius: "30px",

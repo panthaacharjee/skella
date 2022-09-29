@@ -1,17 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: "#2c0c42";
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 body {
   /* height: 100vh; */
   background: url("./Components/assets/HomeBackground.png");
   background-repeat: no-repeat;
   /* background-position: center center; */
-  height: 100%;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center center;
+  background-color: "red";
 }
 
 /* Admin Page 247 NO*/

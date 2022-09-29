@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Ring from "../assets/Ring.png";
-import SelectedRing from "../assets/SelectedRing.png";
 import { Grid, Typography } from "@mui/material";
 
-const Unstake = ({ val, ind }) => {
+import Ring from "../assets/Ring.png";
+import SelectedRing from "../assets/SelectedRing.png";
+
+const Unstacke = ({ val, ind }) => {
   const [select, setSelect] = useState(false);
   return (
     <Grid
@@ -13,9 +14,8 @@ const Unstake = ({ val, ind }) => {
       xs={12}
       style={{
         display: "flex",
-        // alignItems: "center",
         justifyContent: "center",
-        marginTop: "20px",
+        marginTop: "60px",
         cursor: "pointer",
       }}
       key={ind}
@@ -23,23 +23,39 @@ const Unstake = ({ val, ind }) => {
     >
       <div
         style={{
-          background: "#5c2fb5",
+          background:
+            "linear-gradient(90deg, rgba(70, 165, 255, 0.25) 0%, rgba(74, 176, 255, 0.19) 0%, rgba(198, 40, 247, 0.205) 104.87%)",
           borderRadius: "10px",
           position: "relative",
+          // paddingRight: "10px",
+          width: "250px",
+          height: "250px",
         }}
       >
-        <img
-          src={!select ? Ring : SelectedRing}
-          height={"20px"}
-          style={{
-            position: "absolute",
-            display: "flex",
-            justifyContent: "flex-end",
-            marginTop: "20px",
-            right: "20px",
-          }}
-        />
-        <img src={val.img} height={"250px"} />
+        <div style={{ position: "relative" }}>
+          <img
+            src={!select ? Ring : SelectedRing}
+            height={"20px"}
+            style={{
+              position: "absolute",
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "20px",
+              right: "30px",
+              top: "-20px",
+              zIndex: "5555",
+            }}
+          />
+          <img
+            src={val.img}
+            height={"250px"}
+            style={{
+              position: "absolute",
+              top: "-20px",
+              width: "230px",
+            }}
+          />
+        </div>
         <Typography style={{ color: "#fff", marginLeft: "10px" }}>
           {val.name}
         </Typography>
@@ -48,4 +64,4 @@ const Unstake = ({ val, ind }) => {
   );
 };
 
-export default Unstake;
+export default Unstacke;

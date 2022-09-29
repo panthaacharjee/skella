@@ -12,7 +12,7 @@ const Navbar = () => {
         alignItems={"center"}
         style={{
           padding: "0px 40px",
-          background: "#290b66",
+          background: "rgba(255, 255, 255, 0.05)",
           height: "80px",
           boxShadow: "0px 2px 4px rgba(0, 150, 255, 0.2)",
         }}
