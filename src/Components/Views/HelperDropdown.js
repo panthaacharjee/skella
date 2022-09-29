@@ -56,8 +56,10 @@ const HelperDropdown = ({ removeTodo, ind }) => {
             style={{
               color: "#fff",
               borderRadius: "53px",
-              padding: `${isSmall ? "0px 50px" : "0px 60px"}`,
+              padding: `${isSmall ? "0px 0px" : "0px 0px"}`,
               background: "#52514f",
+              width: "230px",
+              textAlign: "center",
             }}
           >
             <MenuItem value={0}>Dropdown</MenuItem>
@@ -68,7 +70,7 @@ const HelperDropdown = ({ removeTodo, ind }) => {
           <input
             placeholder="Address"
             style={{
-              padding: `${isSmall ? "18px 10px" : "18px 25px"}`,
+              padding: `${isSmall ? "18px 0px" : "18px 0px"}`,
               borderRadius: "53px",
               marginLeft: `${isMobile ? "0px" : "15px"}`,
               border: "none",
@@ -78,6 +80,7 @@ const HelperDropdown = ({ removeTodo, ind }) => {
               textAlign: "Center",
               color: "fff",
               marginTop: `${isMobile ? "10px" : "0px"}`,
+              width: "230px",
             }}
             className="input"
           />
