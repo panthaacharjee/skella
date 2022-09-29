@@ -29,7 +29,7 @@ const Stacke = ({ val, ind }) => {
           position: "relative",
           // paddingRight: "10px",
           width: "250px",
-          height: "250px",
+          height: "260px",
         }}
       >
         <div style={{ position: "relative" }}>
@@ -56,7 +56,14 @@ const Stacke = ({ val, ind }) => {
             }}
           />
         </div>
-        <Typography style={{ color: "#fff", marginLeft: "10px" }}>
+        <Typography
+          style={{
+            color: "#fff",
+            marginLeft: "10px",
+            position: "absolute",
+            bottom: "0",
+          }}
+        >
           {val.name}
         </Typography>
       </div>

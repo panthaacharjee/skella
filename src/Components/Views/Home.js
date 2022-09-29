@@ -53,7 +53,7 @@ const Home = () => {
             borderRadius: "30px",
             height: "135px",
             padding: "10px 30px",
-            background: "#3f178f",
+            background: "rgba(255, 255, 255, 0.1)",
           }}
         >
           <Grid container display={"flex"} alignItems={"center"}>
