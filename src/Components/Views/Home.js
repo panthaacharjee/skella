@@ -51,15 +51,15 @@ const Home = () => {
             display: "flex",
             margin: "0px auto",
             borderRadius: "30px",
-            height: "135px",
-            padding: "10px 30px",
+            height: "120px",
+            padding: "0px 30px",
             background: "rgba(255, 255, 255, 0.1)",
           }}
         >
           <Grid container display={"flex"} alignItems={"center"}>
             <Grid item xs={12} md={6}>
-              <Typography color={"#fff"}>Skella staked:</Typography>
-              <Typography color={"#fff"}>5/10</Typography>
+              <Typography color={"#fff"}>Skella staked : 5/10</Typography>
+              {/* <Typography color={"#fff"}></Typography> */}
             </Grid>
             <Grid item xs={12} md={6}>
               <div

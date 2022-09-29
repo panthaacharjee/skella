@@ -195,7 +195,9 @@ const Admin = () => {
                   style={{
                     marginLeft: `${isMobile ? "0px" : "10px"}`,
                     background: `${
-                      ind === selectBtn ? "red" : "rgba(255, 255, 255, 0.2)"
+                      ind === selectBtn
+                        ? "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)"
+                        : "rgba(255, 255, 255, 0.2)"
                     }`,
                     borderRadius: "53px",
                     border: "0px solid red",
