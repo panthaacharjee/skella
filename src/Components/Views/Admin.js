@@ -25,10 +25,22 @@ const Admin = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
   //Add More Function
-  const [add, setAdd] = useState([0, 1, 2]);
+  const [add, setAdd] = useState([{ id: 0 }, { id: 1 }]);
 
   const Addmore = () => {
-    setAdd([...add, add.length]);
+    setAdd([...add, { id: add.length }]);
+  };
+  // Remove Function
+  const removeTodo = (ind) => {
+    // const remove = add.filter((todo) => todo.id !== val);
+    // console.log(add);
+    // console.log(add);
+    const remove = add.filter((todo) => {
+      return todo.id !== ind;
+    });
+    setAdd(remove);
+    console.log(remove);
+    console.log(add);
   };
 
   const [selectBtn, setSelectBtn] = useState(0);
@@ -107,7 +119,11 @@ const Admin = () => {
                   height: "30px",
                   padding: "0px 0px",
                   color: "#fff",
+                  fontSize: "16px",
+                  textIndent: "15px",
                 }}
+                className="hours_input"
+                placeholder="50"
               />
               <Typography color={"#fff"}> Hours</Typography>
             </div>
@@ -191,6 +207,7 @@ const Admin = () => {
                   onClick={() => {
                     setSelectBtn(ind);
                   }}
+                  key={ind}
                 >
                   {val.val} Day
                 </Button>
@@ -212,7 +229,7 @@ const Admin = () => {
         }}
       >
         {add.map((val, ind) => {
-          return <HelperDropdown />;
+          return <HelperDropdown removeTodo={removeTodo} ind={ind} />;
         })}
         <Grid
           item

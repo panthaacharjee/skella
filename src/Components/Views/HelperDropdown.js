@@ -18,7 +18,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import Cross from "../assets/Cross.png";
 import Sign from "../assets/Sign.png";
 
-const HelperDropdown = () => {
+const HelperDropdown = ({ removeTodo, ind }) => {
   //Dropdown Option
   const [dropdown, setDropdown] = useState(0);
 
@@ -83,10 +83,14 @@ const HelperDropdown = () => {
           />
         </Grid>
         <Grid item style={{ marginTop: `${isMobile ? "15px" : "0px"}` }}>
-          <img src={Cross} style={{ height: "40px", cursor: "pointer" }} />
           <img
             src={Sign}
-            style={{ height: "40px", marginLeft: "10px", cursor: "pointer" }}
+            style={{ height: "40px", marginRight: "10px", cursor: "pointer" }}
+          />
+          <img
+            src={Cross}
+            style={{ height: "40px", cursor: "pointer" }}
+            onClick={() => removeTodo(ind)}
           />
         </Grid>
       </Grid>

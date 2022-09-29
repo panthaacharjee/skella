@@ -44,49 +44,65 @@ const Home = () => {
 
   return (
     <div>
-      <Paper
-        style={{
-          width: "80%",
-          display: "flex",
-          margin: "30px auto",
-          borderRadius: "30px",
-          height: "135px",
-          padding: "10px 30px",
-          background: "#3f178f",
-        }}
-      >
-        <Grid container display={"flex"} alignItems={"center"}>
-          <Grid item xs={12} md={6}>
-            <Typography color={"#fff"}>Skella staked:</Typography>
-            <Typography color={"#fff"}>5/10</Typography>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "end",
-              }}
-            >
-              <Typography color={"#fff"}>140 $BONES</Typography>
-              <Button
+      <div style={{ margin: "30px auto" }}>
+        <Paper
+          style={{
+            width: "80%",
+            display: "flex",
+            margin: "0px auto",
+            borderRadius: "30px",
+            height: "135px",
+            padding: "10px 30px",
+            background: "#3f178f",
+          }}
+        >
+          <Grid container display={"flex"} alignItems={"center"}>
+            <Grid item xs={12} md={6}>
+              <Typography color={"#fff"}>Skella staked:</Typography>
+              <Typography color={"#fff"}>5/10</Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <div
                 style={{
-                  borderRadius: "53px",
-                  background:
-                    "linear-gradient(89.72deg, #F1E71A 0.22%, #D515FE 99.75%)",
-                  color: "#fff",
-                  marginLeft: "20px",
-                  padding: "15px 30px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "end",
                 }}
               >
-                <Typography color={"#fff"} style={{ fontSize: "12px" }}>
-                  Claim Now
-                </Typography>
-              </Button>
-            </div>
+                <Typography color={"#fff"}>140 $BONES</Typography>
+                <Button
+                  style={{
+                    borderRadius: "53px",
+                    background:
+                      "linear-gradient(89.72deg, #F1E71A 0.22%, #D515FE 99.75%)",
+                    color: "#fff",
+                    marginLeft: "20px",
+                    padding: "15px 30px",
+                  }}
+                >
+                  <Typography color={"#fff"} style={{ fontSize: "12px" }}>
+                    Claim Now
+                  </Typography>
+                </Button>
+              </div>
+            </Grid>
           </Grid>
+        </Paper>
+        <Grid
+          item
+          style={{
+            textAlign: "center",
+            background: "rgba(255, 255, 255, 0.2)",
+            width: "50%",
+            margin: "0px auto",
+            padding: "10px 0px",
+          }}
+        >
+          <Typography style={{ color: "#fff" }}>
+            Gamify you skellas in 1 day: 12 HOUR: 15mins
+          </Typography>
         </Grid>
-      </Paper>
+      </div>
 
       {/* Staked Container */}
       <Grid

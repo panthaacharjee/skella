@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Grid, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import skella from "../assets/skella.svg";
 
 const Navbar = () => {
   return (
@@ -12,12 +13,12 @@ const Navbar = () => {
         style={{
           padding: "0px 40px",
           background: "#290b66",
-          height: "50px",
+          height: "80px",
           boxShadow: "0px 2px 4px rgba(0, 150, 255, 0.2)",
         }}
       >
         <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
-          Logo Here
+          <img src={skella} height={"50px"} style={{ background: "red" }} />
         </Link>
 
         <Link to="/connect" style={{ color: "#fff", textDecoration: "none" }}>
