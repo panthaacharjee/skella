@@ -96,6 +96,9 @@ const Home = () => {
             width: "50%",
             margin: "0px auto",
             padding: "10px 0px",
+            borderBottomLeftRadius: "30px",
+            borderBottomRightRadius: "30px",
+            borderTopLeftRadius: "0px",
           }}
         >
           <Typography style={{ color: "#fff" }}>
