@@ -15,16 +15,21 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useMediaQuery } from "react-responsive";
 import { AiOutlinePlus } from "react-icons/ai";
+import HelperDropdown from "./HelperDropdown";
 
 const Admin = () => {
   const [stake, setStake] = useState(700);
 
-  //Dropdown Option
-  const [dropdown, setDropdown] = useState(0);
-
   //Media Quearry
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 950px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
+
+  //Add More Function
+  const [add, setAdd] = useState([0, 1, 2]);
+
+  const Addmore = () => {
+    setAdd([...add, add.length]);
+  };
 
   return (
     <div>
@@ -213,116 +218,9 @@ const Admin = () => {
           padding: "10px 20px",
         }}
       >
-        <Grid
-          container
-          style={{
-            borderBottom: "1px solid #fff",
-          }}
-          alignItems="center"
-          justifyContent={"space-between"}
-        >
-          <Grid
-            item
-            alignItems={"center"}
-            style={{
-              display: "flex",
-              padding: "15px 0px",
-              // borderBottom: "1px solid #fff",
-            }}
-          >
-            <Select
-              // id="demo-simple-select"
-              value={dropdown}
-              label="none"
-              onChange={(e) => setDropdown(e.target.value)}
-              // defaultChecked={"Dropdown"}
-              style={{
-                color: "#fff",
-                borderRadius: "53px",
-                padding: "0px 60px",
-                background: "#52514f",
-              }}
-            >
-              <MenuItem value={0}>Dropdown</MenuItem>
-              <MenuItem value={1}>Ten</MenuItem>
-              <MenuItem value={2}>Twenty</MenuItem>
-              <MenuItem value={3}>Thirty</MenuItem>
-            </Select>
-            <input
-              placeholder="Address"
-              style={{
-                padding: "18px 5px",
-                borderRadius: "53px",
-                marginLeft: "15px",
-                border: "none",
-                background: "#52514f",
-                fontSize: "16px",
-                fontWeight: "500",
-                textAlign: "Center",
-              }}
-              className="input"
-            />
-          </Grid>
-          <Grid>
-            <AiOutlinePlus />
-            <AiOutlinePlus />
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          style={{
-            borderBottom: "1px solid #fff",
-          }}
-          alignItems="center"
-          justifyContent={"space-between"}
-        >
-          <Grid
-            item
-            alignItems={"center"}
-            style={{
-              display: "flex",
-              padding: "15px 0px",
-              // borderBottom: "1px solid #fff",
-            }}
-          >
-            <Select
-              // id="demo-simple-select"
-              value={dropdown}
-              label="none"
-              onChange={(e) => setDropdown(e.target.value)}
-              // defaultChecked={"Dropdown"}
-              style={{
-                color: "#fff",
-                borderRadius: "53px",
-                padding: "0px 60px",
-                background: "#52514f",
-              }}
-            >
-              <MenuItem value={0}>Dropdown</MenuItem>
-              <MenuItem value={1}>Ten</MenuItem>
-              <MenuItem value={2}>Twenty</MenuItem>
-              <MenuItem value={3}>Thirty</MenuItem>
-            </Select>
-            <input
-              placeholder="Address"
-              style={{
-                padding: "18px 5px",
-                borderRadius: "53px",
-                marginLeft: "15px",
-                border: "none",
-                background: "#52514f",
-                fontSize: "16px",
-                fontWeight: "500",
-                textAlign: "Center",
-              }}
-              className="input"
-            />
-          </Grid>
-          <Grid>
-            <AiOutlinePlus />
-            <AiOutlinePlus />
-          </Grid>
-        </Grid>
+        {add.map((val, ind) => {
+          return <HelperDropdown />;
+        })}
         <Grid
           item
           style={{
@@ -334,7 +232,7 @@ const Admin = () => {
           <Button
             style={{
               color: "#fff",
-              background: "#46465f",
+              background: "rgba(255, 255, 255, 0.36)",
               borderRadius: "46px",
               padding: "8px 20px",
             }}
@@ -344,11 +242,13 @@ const Admin = () => {
           <Button
             style={{
               color: "#fff",
-              background: "blue",
+              background:
+                "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)",
               borderRadius: "46px",
               padding: "8px 20px",
               marginLeft: "10px",
             }}
+            onClick={Addmore}
           >
             <AiOutlinePlus />
             Add More
