@@ -18,7 +18,7 @@ const Navbar = () => {
         }}
       >
         <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
-          <img src={skella} height={"50px"} style={{}} />
+          <img src={skella} height={"50px"} />
         </Link>
 
         <Link to="/connect" style={{ color: "#fff", textDecoration: "none" }}>

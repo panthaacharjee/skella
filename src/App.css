@@ -5,9 +5,13 @@
   box-sizing: border-box;
 }
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
+  background: url("./Components/assets/HomeBackground.png");
+  background-repeat: no-repeat;
+  /* background-position: center center; */
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
 }
 
 /* Admin Page 247 NO*/
