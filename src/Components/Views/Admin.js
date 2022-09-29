@@ -31,6 +31,18 @@ const Admin = () => {
     setAdd([...add, add.length]);
   };
 
+  const [selectBtn, setSelectBtn] = useState(0);
+  const btnData = [
+    {
+      val: 1,
+    },
+    {
+      val: 5,
+    },
+    {
+      val: 13,
+    },
+  ];
   return (
     <div>
       <Grid
@@ -161,48 +173,29 @@ const Admin = () => {
               marginTop: `${isTabletOrMobile ? "20px" : "0px"}`,
             }}
           >
-            <Button
-              style={{
-                marginLeft: `${isMobile ? "0px" : "10px"}`,
-                background: "rgba(255, 255, 255, 0.2)",
-                borderRadius: "53px",
-                border: "0px solid red",
-                height: "30px",
-                padding: "30px 60px",
-                color: "#fff",
-                marginTop: `${isMobile ? "20px" : "0px"}`,
-              }}
-            >
-              1 Day
-            </Button>
-            <Button
-              style={{
-                marginLeft: `${isMobile ? "0px" : "10px"}`,
-                background: "rgba(255, 255, 255, 0.2)",
-                borderRadius: "53px",
-                border: "0px solid red",
-                height: "30px",
-                padding: "30px 60px",
-                color: "#fff",
-                marginTop: `${isMobile ? "10px" : "0px"}`,
-              }}
-            >
-              5 Day
-            </Button>
-            <Button
-              style={{
-                marginLeft: `${isMobile ? "0px" : "10px"}`,
-                background: "rgba(255, 255, 255, 0.2)",
-                borderRadius: "53px",
-                border: "0px solid red",
-                height: "30px",
-                padding: "30px 60px",
-                color: "#fff",
-                marginTop: `${isMobile ? "10px" : "0px"}`,
-              }}
-            >
-              13 Day
-            </Button>
+            {btnData.map((val, ind) => {
+              return (
+                <Button
+                  style={{
+                    marginLeft: `${isMobile ? "0px" : "10px"}`,
+                    background: `${
+                      ind === selectBtn ? "red" : "rgba(255, 255, 255, 0.2)"
+                    }`,
+                    borderRadius: "53px",
+                    border: "0px solid red",
+                    height: "30px",
+                    padding: "30px 60px",
+                    color: "#fff",
+                    marginTop: `${isMobile ? "20px" : "0px"}`,
+                  }}
+                  onClick={() => {
+                    setSelectBtn(ind);
+                  }}
+                >
+                  {val.val} Day
+                </Button>
+              );
+            })}
           </Grid>
         </Grid>
       </Grid>
