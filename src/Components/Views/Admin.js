@@ -1,17 +1,5 @@
-import {
-  Button,
-  Grid,
-  Slider,
-  Typography,
-  FormControl,
-  InputLabel,
-  NativeSelect,
-  Select,
-  MenuItem,
-  TextField,
-} from "@mui/material";
+import { Button, Grid, Slider, Typography } from "@mui/material";
 import React, { useState } from "react";
-import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useMediaQuery } from "react-responsive";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -71,6 +59,7 @@ const Admin = () => {
           onChange={(e, val) => setStake(val)}
         />
       </Grid>
+
       <Grid
         item
         style={{
@@ -218,6 +207,7 @@ const Admin = () => {
           </Grid>
         </Grid>
       </Grid>
+      {/*(           Button Property          )*/}
       <Grid
         item
         style={{

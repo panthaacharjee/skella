@@ -5,6 +5,7 @@ import Ring from "../assets/Ring.png";
 import SelectedRing from "../assets/SelectedRing.png";
 import Stacke from "./Stacke";
 import Unstake from "./Unstake";
+import { useMediaQuery } from "react-responsive";
 
 const Home = () => {
   const stakedData = [
@@ -41,6 +42,10 @@ const Home = () => {
       name: "Good Skelas",
     },
   ];
+
+  //Media Quearry
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 950px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
 
   return (
     <div>
@@ -106,101 +111,114 @@ const Home = () => {
           </Typography>
         </Grid>
       </div>
-
-      {/* Staked Container */}
       <Grid
         container
         style={{
-          width: "80%",
+          width: "85%",
           margin: "0px auto",
-          background:
-            "linear-gradient(90deg, rgba(70, 165, 255, 0.1) 0%, rgba(74, 176, 255, 0.076) 0%, rgba(198, 40, 247, 0.082) 104.87%)",
-          padding: "20px 0px",
-          borderRadius: "20px",
+          display: "flex",
+          justifyContent: "space-between",
         }}
       >
-        <Grid
-          item
-          md={12}
-          display={"flex"}
-          justifyContent={"flex-end"}
-          style={{ margin: "15px 0px", padding: "0px 30px" }}
-        >
-          <Button
+        {/* Staked Container */}
+        <Grid item md={6}>
+          <Grid
+            container
             style={{
-              background: "rgba(255, 255, 255, 0.21)",
-              color: "#fff",
-              borderRadius: "30px",
-              padding: "5px 15px",
-            }}
-          >
-            Stake
-          </Button>
-          <Button
-            style={{
+              width: "97%",
+              margin: "0px auto",
               background:
-                "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)",
-              color: "#fff",
-              borderRadius: "30px",
-              padding: "5px 15px",
-              marginLeft: "10px",
+                "linear-gradient(90deg, rgba(70, 165, 255, 0.1) 0%, rgba(74, 176, 255, 0.076) 0%, rgba(198, 40, 247, 0.082) 104.87%)",
+              padding: "20px 0px",
+              borderRadius: "20px",
             }}
           >
-            Stake All
-          </Button>
+            <Grid
+              item
+              md={12}
+              display={"flex"}
+              justifyContent={"flex-end"}
+              style={{ margin: "15px 0px", padding: "0px 30px" }}
+            >
+              <Button
+                style={{
+                  background: "rgba(255, 255, 255, 0.21)",
+                  color: "#fff",
+                  borderRadius: "30px",
+                  padding: "5px 15px",
+                }}
+              >
+                Stake
+              </Button>
+              <Button
+                style={{
+                  background:
+                    "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)",
+                  color: "#fff",
+                  borderRadius: "30px",
+                  padding: "5px 15px",
+                  marginLeft: "10px",
+                }}
+              >
+                Stake All
+              </Button>
+            </Grid>
+            {stakedData.map((val, ind) => {
+              return <Stacke val={val} ind={ind} />;
+            })}
+          </Grid>
         </Grid>
-        {stakedData.map((val, ind) => {
-          return <Stacke val={val} ind={ind} />;
-        })}
-      </Grid>
+        {/* Untaked Container */}
 
-      {/* Untaked Container */}
-      <Grid
-        container
-        style={{
-          width: "80%",
-          margin: "0px auto",
-          background:
-            "linear-gradient(90deg, rgba(70, 165, 255, 0.1) 0%, rgba(74, 176, 255, 0.076) 0%, rgba(198, 40, 247, 0.082) 104.87%)",
-          padding: "20px 0px",
-          borderRadius: "20px",
-          marginTop: "20px",
-          // display: "block",
-        }}
-      >
-        <Grid
-          item
-          md={12}
-          display={"flex"}
-          justifyContent={"flex-end"}
-          style={{ margin: "15px 0px", padding: "0px 30px" }}
-        >
-          <Button
+        <Grid item md={6} style={{ marginTop: `${isMobile ? "15px" : "0px"}` }}>
+          <Grid
+            container
             style={{
-              background: "rgba(255, 255, 255, 0.21)",
-              color: "#fff",
-              borderRadius: "30px",
-              padding: "5px 15px",
-            }}
-          >
-            unStake
-          </Button>
-          <Button
-            style={{
+              width: "97%",
+              margin: "0px auto",
               background:
-                "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)",
-              color: "#fff",
-              borderRadius: "30px",
-              padding: "5px 15px",
-              marginLeft: "10px",
+                "linear-gradient(90deg, rgba(70, 165, 255, 0.1) 0%, rgba(74, 176, 255, 0.076) 0%, rgba(198, 40, 247, 0.082) 104.87%)",
+              padding: "20px 0px",
+              borderRadius: "20px",
+              // marginTop: "20px",
+              // display: "block",
             }}
           >
-            Unstake All
-          </Button>
+            <Grid
+              item
+              md={12}
+              display={"flex"}
+              justifyContent={"flex-end"}
+              style={{ margin: "15px 0px", padding: "0px 30px" }}
+            >
+              <Button
+                style={{
+                  background: "rgba(255, 255, 255, 0.21)",
+                  color: "#fff",
+                  borderRadius: "30px",
+                  padding: "5px 15px",
+                }}
+              >
+                unStake
+              </Button>
+              <Button
+                style={{
+                  background:
+                    "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)",
+                  color: "#fff",
+                  borderRadius: "30px",
+                  padding: "5px 15px",
+                  marginLeft: "10px",
+                }}
+              >
+                Unstake All
+              </Button>
+            </Grid>
+            {stakedData.map((val, ind) => {
+              return <Unstake val={val} ind={ind} />;
+            })}
+          </Grid>
         </Grid>
-        {stakedData.map((val, ind) => {
-          return <Unstake val={val} ind={ind} />;
-        })}
       </Grid>
     </div>
   );

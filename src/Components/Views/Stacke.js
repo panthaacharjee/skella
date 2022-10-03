@@ -9,8 +9,8 @@ const Stacke = ({ val, ind }) => {
   return (
     <Grid
       item
-      lg={3}
-      md={4}
+      lg={4}
+      md={6}
       xs={12}
       style={{
         display: "flex",
@@ -28,8 +28,8 @@ const Stacke = ({ val, ind }) => {
           borderRadius: "10px",
           position: "relative",
           // paddingRight: "10px",
-          width: "250px",
-          height: "260px",
+          width: "150px",
+          height: "165px",
         }}
       >
         <div style={{ position: "relative" }}>
@@ -48,11 +48,11 @@ const Stacke = ({ val, ind }) => {
           />
           <img
             src={val.img}
-            height={"250px"}
+            height={"160px"}
             style={{
               position: "absolute",
               top: "-20px",
-              width: "230px",
+              width: "140px",
             }}
           />
         </div>
