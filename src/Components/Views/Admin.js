@@ -4,6 +4,7 @@ import "react-dropdown/style.css";
 import { useMediaQuery } from "react-responsive";
 import { AiOutlinePlus } from "react-icons/ai";
 import HelperDropdown from "./HelperDropdown";
+import RewardStaking from "./RewardStaking";
 
 const Admin = () => {
   const [stake, setStake] = useState(700);
@@ -11,25 +12,6 @@ const Admin = () => {
   //Media Quearry
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 950px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
-
-  //Add More Function
-  const [add, setAdd] = useState([{ id: 0 }, { id: 1 }]);
-
-  const Addmore = () => {
-    setAdd([...add, { id: add.length }]);
-  };
-  // Remove Function
-  const removeTodo = (ind) => {
-    // const remove = add.filter((todo) => todo.id !== val);
-    // console.log(add);
-    // console.log(add);
-    const remove = add.filter((todo) => {
-      return todo.id !== ind;
-    });
-    setAdd(remove);
-    console.log(remove);
-    console.log(add);
-  };
 
   const [selectBtn, setSelectBtn] = useState(0);
   const btnData = [
@@ -43,6 +25,9 @@ const Admin = () => {
       val: 13,
     },
   ];
+  {
+    console.log(selectBtn);
+  }
   return (
     <div>
       <Grid
@@ -208,55 +193,11 @@ const Admin = () => {
         </Grid>
       </Grid>
       {/*(           Button Property          )*/}
-      <Grid
-        item
-        style={{
-          width: "80%",
-          display: "block",
-          margin: "20px auto",
-          background:
-            "linear-gradient(90deg, rgba(70, 165, 255, 0.26) 0%, rgba(74, 176, 255, 0.1976) 0%, rgba(198, 40, 247, 0.2132) 104.87%)",
-          borderRadius: "15px",
-          padding: "10px 20px",
-        }}
-      >
-        {add.map((val, ind) => {
-          return <HelperDropdown removeTodo={removeTodo} ind={ind} />;
-        })}
-        <Grid
-          item
-          style={{
-            display: "flex",
-            justifyContent: "end",
-            padding: "20px 0px",
-          }}
-        >
-          <Button
-            style={{
-              color: "#fff",
-              background: "rgba(255, 255, 255, 0.36)",
-              borderRadius: "46px",
-              padding: "8px 20px",
-            }}
-          >
-            Save
-          </Button>
-          <Button
-            style={{
-              color: "#fff",
-              background:
-                "linear-gradient(90deg, #46A5FF 0%, rgba(74, 176, 255, 0.76) 0%, rgba(198, 40, 247, 0.82) 104.87%)",
-              borderRadius: "46px",
-              padding: "8px 20px",
-              marginLeft: "10px",
-            }}
-            onClick={Addmore}
-          >
-            <AiOutlinePlus />
-            Add More
-          </Button>
-        </Grid>
-      </Grid>
+      {btnData.map((val, ind) => {
+        if (ind == selectBtn) {
+          return <RewardStaking />;
+        }
+      })}
     </div>
   );
 };

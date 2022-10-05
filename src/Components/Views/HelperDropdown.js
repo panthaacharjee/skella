@@ -1,20 +1,7 @@
-import {
-  Button,
-  Grid,
-  Slider,
-  Typography,
-  FormControl,
-  InputLabel,
-  NativeSelect,
-  Select,
-  MenuItem,
-  TextField,
-} from "@mui/material";
+import { Grid, Select, MenuItem } from "@mui/material";
 import React, { useState } from "react";
-import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useMediaQuery } from "react-responsive";
-import { AiOutlinePlus } from "react-icons/ai";
 import Cross from "../assets/Cross.png";
 import Sign from "../assets/Sign.png";
 
